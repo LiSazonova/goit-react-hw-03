@@ -3,9 +3,9 @@ import Contact from '../Contact/Contact';
 
 const ContactList = ({ contacts }) => {
   return (
-    <ul>
+    <ul className={s.contacts_list}>
       {contacts.map(contact => (
-        <li key={contact.id}>
+        <li className={s.contacts_item} key={contact.id}>
           <Contact data={contact} />
         </li>
       ))}
