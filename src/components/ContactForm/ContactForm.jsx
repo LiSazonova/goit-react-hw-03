@@ -45,12 +45,12 @@ const ContactForm = ({ onAdd }) => {
         <label className={s.input_title} htmlFor={nameFieldId}>
           Name
         </label>
-        <Field className={s.field} type="text" name="name" id="name" />
+        <Field className={s.field} type="text" name="name" />
         <ErrorMessage name="name" />
         <label className={s.input_title} htmlFor={phoneFieldId}>
           Number
         </label>
-        <Field className={s.field} type="tel" name="number" id="number" />
+        <Field className={s.field} type="tel" name="number" />
         <ErrorMessage name="number" />
         <button className={s.btn} type="submit">
           {' '}
