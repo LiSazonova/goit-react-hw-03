@@ -46,12 +46,16 @@ const ContactForm = ({ onAdd }) => {
           Name
         </label>
         <Field className={s.field} type="text" name="name" />
-        <ErrorMessage name="name" />
+        <ErrorMessage className={s.input_error} name="name" component="span" />
         <label className={s.input_title} htmlFor={phoneFieldId}>
           Number
         </label>
         <Field className={s.field} type="tel" name="number" />
-        <ErrorMessage name="number" />
+        <ErrorMessage
+          className={s.input_error}
+          name="number"
+          component="span"
+        />
         <button className={s.btn} type="submit">
           {' '}
           Add contact{' '}

@@ -16,7 +16,6 @@
     border-color: #ececec;
     background-color: inherit;
     box-shadow: 4px 4px 8px rgb(0 203 255 / 50%);
-    margin-bottom: 25px;
     padding: 8px;
 }
 
@@ -28,8 +27,19 @@
     border-radius: 8px;
     border: 2px solid #ececec;
     box-shadow: 4px 4px 8px rgb(0 203 255 / 50%);
+    margin-top: 25px;
 }
 
 .input_title {
     font-size: 20px;
+}
+
+.input_title:not(:first-child) {
+    margin-top: 25px;
+}
+
+.input_error {
+    margin-top: 10px;
+        font-size: 18px;
+            color: #ef4040;
 }
