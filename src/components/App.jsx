@@ -1,21 +1,37 @@
+import { useState, useEffect } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import SearchBox from './SearchBox/SearchBox';
 import ContactList from './ContactList/ContactList';
-import contacts from './contacts.json';
+import initialContacts from './contacts.json';
 import s from './App.module.css';
-import { useState } from 'react';
 
 const App = () => {
-  // const [contacts, setContacts] = useState(contactsData);
+  const [contacts, setContacts] = useState(() => {
+    const savedData = JSON.parse(window.localStorage.getItem('contacts'));
+    if (savedData) {
+      return savedData;
+    }
+    return initialContacts;
+  });
   const [search, setSearch] = useState('');
+
+  const addContacts = newContact => {
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const searchContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(search.toLowerCase()),
   );
   return (
-    <div>
+    <div className={s.wrapper}>
       <h1 className={s.title}>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAdd={addContacts} />
       <SearchBox value={search} onSearch={setSearch} />
       <ContactList contacts={searchContacts} />
     </div>
